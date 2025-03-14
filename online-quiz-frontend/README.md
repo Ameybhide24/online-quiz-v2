@@ -1,6 +1,6 @@
 # Online Quiz Platform - Frontend
 
-This is the **Frontend** of the **Online Quiz Platform** built using **React.js**. It provides a seamless experience for **teachers** to create quizzes and view submissions, and for **students** to attempt quizzes and view their results.
+This is the **Frontend** of the **Online Quiz Platform** built using **React.js**. It provides the ability for **teachers** to create quizzes and view submissions, and for **students** to attempt quizzes and view their results.
 
 ---
 
@@ -8,7 +8,6 @@ This is the **Frontend** of the **Online Quiz Platform** built using **React.js*
 
 - **User Authentication**
   - Register & Login (Role-based: `student` / `teacher`)
-  - Secure access to different dashboards based on roles
 
 - **Teacher Dashboard**
   - Create new quizzes
@@ -20,9 +19,6 @@ This is the **Frontend** of the **Online Quiz Platform** built using **React.js*
   - View available quizzes
   - Attempt quizzes
   - View their own submissions and scores
-
-- **Navigation**
-  - Dynamic navbar based on authentication and roles
 
 ---
 
