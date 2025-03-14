@@ -6,15 +6,10 @@ let mongoServer;
 exports.mochaHooks = {
     beforeAll: async () => {
         await mongoose.disconnect();
-        
-        // Create new in-memory mongo instace for testing
         mongoServer = await MongoMemoryServer.create();
         const mongoUri = await mongoServer.getUri();
-        
         await mongoose.connect(mongoUri);
-
         console.log('Connected to in-memory MongoDB:', mongoose.connection.name);
-
         await clearDatabase();
     },
 

@@ -1,43 +1,84 @@
-import React, { useState } from 'react';
-import API from '../services/api';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import '../App.css';
-
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import API from "../services/api";
 
 const Register = () => {
-  const [form, setForm] = useState({ name: '', email: '', password: '', role: 'student' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "student",
+  });
+
   const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.name.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
     try {
-      await API.post('/auth/register', form);
-      alert('Registration successful!');
-      navigate('/');
+      const res = await API.post("/auth/register", formData);
+      console.log("Register response:", res.data);
+
+      alert("Registration successful! Please log in.");
+      navigate("/login");
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data?.message || "Registration failed");
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2 >Register</h2>
-        <form onSubmit={handleRegister}>
-          <input type="text" placeholder="Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-          <input type="email" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-          <input type="password" placeholder="Password" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
-          <select value={form.role} onChange={e => setForm({ ...form, role: e.target.value })}>
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-          </select>
-          <button type="submit">Register</button>
-        </form>
-        <br></br>
-        <p>Already have an account? <Link to="/">Login here</Link></p>
-      </div>
-      
+    <div className="auth-container">
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+
+        <select name="role" value={formData.role} onChange={handleChange}>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </div>
   );
 };

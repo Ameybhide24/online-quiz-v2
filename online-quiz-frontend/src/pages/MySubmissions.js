@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import API from '../services/api';
-import '../App.css';
-
+import React, { useEffect, useState } from "react";
+import API from "../services/api";
+import "../App.css";
 
 const MySubmissions = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -9,7 +8,7 @@ const MySubmissions = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const res = await API.get('/submissions/my-submissions');
+        const res = await API.get("/submissions/my-submissions");
         setSubmissions(res.data);
       } catch (err) {
         alert(err.message);
@@ -28,8 +27,13 @@ const MySubmissions = () => {
         submissions.map((submission) => (
           <div key={submission._id} className="submission-card">
             <h4>{submission.quizTitle}</h4>
-            <p><strong>Score:</strong> {submission.score}</p>
-            <p><strong>Date:</strong> {new Date(submission.createdAt).toLocaleDateString()}</p>
+            <p>
+              <strong>Score:</strong> {submission.score}
+            </p>
+            <p>
+              <strong>Date:</strong>{" "}
+              {new Date(submission.submittedAt).toLocaleDateString()}
+            </p>
           </div>
         ))
       )}
