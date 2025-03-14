@@ -19,15 +19,20 @@ Clone the project:
 git clone https://github.com/yourusername/online-quiz.git
 cd online-quiz
 ```
+### 2 Go to backend folder
 
-### 2️ Install Dependencies
+Go to backend folder:
+```bash
+cd backend
+```
+### 3 Install Dependencies
 
 Install required packages:
 ```bash
 npm install
 ```
 
-### 3 Start the Server
+### 4 Start the Server
 
 Run the server:
 ```bash
@@ -36,11 +41,25 @@ npm run dev
 
 The server will run on port 3000 by default.
 
-### 4 Testing
+### 5 Testing
 
 Run the tests:
 ```bash
 npm test
+```
+
+### 6 Go to frontend folder
+
+Go to folder:
+```bash
+cd online-quiz-frontend
+```
+
+### 7 Start react app
+
+Run the tests:
+```bash
+npm start
 ```
 
 ## API Endpoints
