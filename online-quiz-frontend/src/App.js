@@ -53,6 +53,17 @@ function App() {
           }
         />
         <Route
+          path="/create-quiz/:quizId"
+          element={
+            user?.role === "teacher" ? (
+              <CreateQuiz />
+            ) : (
+              <Navigate to="/dashboard" />
+            )
+          }
+        />
+
+        <Route
           path="/submit-quiz/:quizId"
           element={
             user?.role === "student" ? (
