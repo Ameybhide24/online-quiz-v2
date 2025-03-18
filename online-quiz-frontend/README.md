@@ -25,6 +25,5 @@ This is the **Frontend** of the **Online Quiz Platform** built using **React.js*
 ## Tech Stack
 
 - **React.js**
-- **React Router DOM** (Navigation)
-- **Axios** (API requests)
-- **CSS3** (Custom styling)
+- **Axios**
+- **CSS3**

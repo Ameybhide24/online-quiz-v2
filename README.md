@@ -9,6 +9,14 @@
 - **Database**: MongoDB.
 - **Unit tests**: Unit tests use an in-memory MongoDB instance.
 
+## Tech Stack
+- **Node.js**
+- **Express.js**
+- **MongoDBs**
+- **Mongoose**
+- **JWT**
+- **React.js**
+- **Axios**
 
 ## Setup Instructions
 
