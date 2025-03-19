@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 app.use(cors({
-  origin: 'http://18.117.92.117:3000',
+  origin: 'http://18.226.88.84:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
