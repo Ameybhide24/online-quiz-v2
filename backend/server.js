@@ -13,6 +13,12 @@ if (process.env.NODE_ENV !== 'test') {
     connectDB(process.env.MONGODB_URI);
 }
 
+app.use(cors({
+  origin: 'http://18.117.92.117:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
 app.use(cors());
 app.use(express.json());
 
